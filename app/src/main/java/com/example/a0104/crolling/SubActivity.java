@@ -7,10 +7,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class SubActivity extends AppCompatActivity {
 
     String [][] timeTable;
     Button btn_prev;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("Sub","onCreate 호출");
