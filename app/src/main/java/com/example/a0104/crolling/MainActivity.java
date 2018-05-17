@@ -23,11 +23,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-
-    public static final String Cro = "Crolling"; //Crolling 로그 분석
-    TextView classes,time;
+    ArrayList<String> timeTable = new ArrayList<>();
     EditText ID,PW;
-    public String Sub;
+    private String name;
     private String id,pw;
     Button Login;
 
@@ -35,41 +33,38 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d(Cro,"onCreate 호출됨");
+        Log.d("Main","onCreate 호출됨");
 
         ID = findViewById(R.id.ID); //EditText 아이디 입력창
         PW = findViewById(R.id.PW); //EditText 비밀번호 입력창
-        classes = findViewById(R.id.classes); //TextView 수강과목 출력창
-        time = findViewById(R.id.time); //TextView 시간 출력창
-        classes.setMovementMethod(new ScrollingMovementMethod()); //출력창이 스크롤 가능하도록
-        time.setMovementMethod(new ScrollingMovementMethod());
-        Button Login = findViewById(R.id.Login); //Button 로그인 버튼
+        Login = findViewById(R.id.Login); //Button 로그인 버튼
 
-        Login = (Button)findViewById(R.id.Login);//로그인 버튼 검색
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {//클릭 되었을때
-                Log.d(Cro,"onClick 호출됨");
+                Log.d("LoginBtn","onClick 호출됨");
                 id = ID.getText().toString(); //아이디 입력창의 데이터를 들고와서 문자열으로 받는다.
                 pw = PW.getText().toString(); //비밀번호 입력창의 데이터를 들고와서 문자열으로 받는다.
-                Log.d(Cro,"아이디"+id + ", 비밀번호"+pw);
+                Log.d("LoginBtn","아이디"+id + ", 비밀번호"+pw);
 
-                Crolling crolling = new Crolling(); //스레드 생성
-                crolling.start();   //스레드 시작
-                Log.d(Cro,"아이디와 비밀번호를 입력함.");
-
-                //다음 페이지로 화면을 전환
-                //화면을 전환할 때 사용하는 클래스 intent
-
-                Intent intent = new Intent(MainActivity.this, SubActivity.class);
-                                                             //이동전 액티비티 ,  이동 할 액티비티
-                startActivity(intent); //화면 전환하기
+                GetData getData = new GetData();
+                getData.start();
+                try { //getData 쓰레드 수행시간이 인텐트로 화면이동을 못따라가서 인텐트에 timeTable을 넣을 수 없었다.
+                    Log.d("LoginBtn","join"); //getData 쓰레드가 끝날때 까지 기다린다.
+                    getData.join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Intent intent = new Intent(MainActivity.this,SubActivity.class);
+                intent.putStringArrayListExtra("timeTable",timeTable); //시간표 넣는다.
+                intent.putExtra("name",name);
+                intent.putExtra("id",id);
+                startActivity(intent);
+                Log.d("LoginBtn", "onClick 종료");
             }
         });//이벤트 감지자
-
     }
-
-    private class Crolling extends Thread{  //스레드
+    private class GetData extends Thread{  //스레드
         @Override
         public void run() {
             try {
@@ -101,26 +96,20 @@ public class MainActivity extends AppCompatActivity {
                         .timeout(0)
                         .execute();
 
-                Document document = Parse.parse();
+                Document document = Parse.parse(); //정보들을 파싱해온다
+                name = document.select("div.login").get(0).select("strong").get(0).toString();
+                Elements list = document.select("div.m-box2").get(0).select("li");
+                Elements sub_sub = list.select("em");
+                Elements sub_time = list.select("span");
 
-                ArrayList<String> timeTable = new ArrayList<>();
-                Element table = document.select("div.m-box2").get(0);
-                Elements time = table.select("li");
-
-                Elements sub_sub = time.select("em");
-                Elements sub_time = time.select("span");
-
-                for (Element e : sub_time) {
-                    Sub = sub_time.text();
+                for (int i = 0; i < sub_sub.size(); i++) { //ArrayList 에 넣는 작업
+                    timeTable.add(sub_sub.get(i).text());
+                    timeTable.add(sub_time.get(i).text());
                 }
-
-
             } catch (IOException e) {
                 e.printStackTrace();
                 Toast.makeText(MainActivity.this, "시간표를 들고 올 수 없습니다..", Toast.LENGTH_SHORT).show();
             }
-
-            classes.setText(Sub); //출력
         }
     }
 }
