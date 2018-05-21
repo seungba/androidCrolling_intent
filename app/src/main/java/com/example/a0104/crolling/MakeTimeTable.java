@@ -11,13 +11,15 @@ class MakeTimeTable {
                 timeTable[i][j] = " ";
             }
         }
-        for (int i = 2; i < SubList.size(); i++) { // 강의마다 시간표에 넣는 작업
+        for (int i = 0; i < SubList.size(); i++) { // 강의마다 시간표에 넣는 작업
             String[] Subject = SubList.get(i).split(" "); // 강의 이름만 추출
             i++; // 넣은 과목의 시간으로 이동
             String[] time = SubList.get(i).toString().split(" "); // 강의 시간이 2개이상일 경우 분리한다.
-            if (!(time[0] == "본교가상")) {
-                for (int j = 0; j < time.length; j++) { // 강의시간 하나를 분류한다.
-                    int day = 0, cloStart, cloEnd, clo, minStart, minEnd; // 요일, 시간, 분으로 분류
+            Log.d("test", time[0]);
+
+            for (int j = 0; j < time.length; j++) { // 강의시간 하나를 분류한다.
+                int day = 0, cloStart, cloEnd, clo, minStart, minEnd; // 요일, 시간, 분으로 분류
+                if (!(time[j].charAt((0)) == '본')) { //본교가상일 경우 스킵
                     switch (time[j].charAt(0)) {
                         case '월':
                             day = 0;
