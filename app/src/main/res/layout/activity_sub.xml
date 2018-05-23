@@ -1457,10 +1457,10 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
-            android:id="@+id/btn_prev"
-            android:layout_width="match_parent"
+            android:id="@+id/groupBtn"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="prev" />
+            android:text="조별과제" />
 
     </LinearLayout>
 

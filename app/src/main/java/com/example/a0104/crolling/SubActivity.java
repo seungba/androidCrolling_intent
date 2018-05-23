@@ -16,18 +16,19 @@ import com.google.firebase.database.ValueEventListener;
 public class SubActivity extends AppCompatActivity {
 
     String [][] timeTable;
-    Button btn_prev;
+    Button groupBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("Sub","onCreate 호출");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub);
-        btn_prev = findViewById(R.id.btn_prev); //검색
-        btn_prev.setOnClickListener(new View.OnClickListener() {
+        groupBtn = findViewById(R.id.groupBtn); //검색
+        groupBtn.setOnClickListener(new View.OnClickListener() {
             @Override //이벤트 감지자 등록
             public void onClick(View v) {
-
+                Intent intent = new Intent(SubActivity.this, Group.class);
+                startActivity(intent);
             }
         });
 
