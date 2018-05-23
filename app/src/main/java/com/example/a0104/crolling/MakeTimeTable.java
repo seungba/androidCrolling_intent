@@ -5,6 +5,7 @@ import java.util.ArrayList;
 class MakeTimeTable {
     public String[][] MakeTable(ArrayList<String> SubList) {
         String[][] timeTable = new String[5][20];
+        String tableMask = "";
         for(int i=0; i < 4; i++){
             for(int j=0; j < 20; j++){
                 timeTable[i][j] = " ";
