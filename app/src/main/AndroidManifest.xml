@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SubActivity" />
-        <activity android:name=".Group"></activity>
+        <activity android:name=".GroupActivity"></activity>
     </application>
 
 </manifest>
