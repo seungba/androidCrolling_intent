@@ -1,6 +1,5 @@
 package com.example.a0104.crolling;
 
-import android.util.Log;
 import java.util.ArrayList;
 
 class MakeTimeTable {
@@ -15,7 +14,6 @@ class MakeTimeTable {
             String[] Subject = SubList.get(i).split(" "); // 강의 이름만 추출
             i++; // 넣은 과목의 시간으로 이동
             String[] time = SubList.get(i).toString().split(" "); // 강의 시간이 2개이상일 경우 분리한다.
-            Log.d("test", time[0]);
 
             for (int j = 0; j < time.length; j++) { // 강의시간 하나를 분류한다.
                 int day = 0, cloStart, cloEnd, clo, minStart, minEnd; // 요일, 시간, 분으로 분류
