@@ -1,5 +1,7 @@
 package com.example.a0104.crolling;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 class MakeTimeTable {
@@ -58,6 +60,7 @@ class MakeTimeTable {
                 }
             }
         }
+        Log.d("test","timetable완성");
         return timeTable;
     }
 }

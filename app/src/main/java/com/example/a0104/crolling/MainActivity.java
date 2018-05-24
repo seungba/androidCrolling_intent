@@ -22,7 +22,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
     ArrayList<String> timeTable = new ArrayList<>();
     EditText ID,PW;
-    private String name;
+    private String name = null;
     private String id,pw;
     Button Login;
 
@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         ID = findViewById(R.id.ID); //EditText 아이디 입력창
         PW = findViewById(R.id.PW); //EditText 비밀번호 입력창
         Login = findViewById(R.id.Login); //Button 로그인 버튼
-
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {//클릭 되었을때

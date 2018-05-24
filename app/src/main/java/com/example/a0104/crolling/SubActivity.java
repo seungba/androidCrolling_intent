@@ -17,6 +17,7 @@ public class SubActivity extends AppCompatActivity {
 
     String [][] timeTable;
     Button groupBtn;
+    String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +32,6 @@ public class SubActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         Intent intent = getIntent();
         intent.getStringArrayListExtra("timeTable");
         intent.getStringExtra("name");
@@ -42,5 +42,8 @@ public class SubActivity extends AppCompatActivity {
 
         MakeTimeTable makeTimeTable = new MakeTimeTable();
         timeTable = makeTimeTable.MakeTable(intent.getStringArrayListExtra("timeTable"));
+
+        Firebase firebase = new Firebase(); // User테이블에 정보(학번(id), 이름(name), 시간표(timeTable)을 넣는다)
+        firebase.updateUser(intent.getStringExtra("id"),intent.getStringExtra("name"));
     }
 }
