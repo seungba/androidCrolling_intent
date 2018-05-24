@@ -16,9 +16,8 @@ import com.google.firebase.database.ValueEventListener;
 public class SubActivity extends AppCompatActivity {
 
     String [][] timeTable;
-    String mask;
     Button groupBtn;
-    String name;
+    String user_name, user_id, mask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,17 +34,18 @@ public class SubActivity extends AppCompatActivity {
         });
         Intent intent = getIntent();
         intent.getStringArrayListExtra("timeTable");
-        intent.getStringExtra("name");
-        intent.getStringExtra("id");
-        Log.d("Sub",intent.getStringArrayListExtra("timeTable").get(0).toString());
-        Log.d("Sub",intent.getStringExtra("name"));
-        Log.d("Sub",intent.getStringExtra("id"));
+        user_name = intent.getStringExtra("name"); // html 코드 그대로 들고오기때문에 수정이 필요하다.
+        user_id = intent.getStringExtra("id");
+        String[] array1 = user_name.split(">"); //<strong class=\"site-font-color\" id=\"user\" style=\"float: left ;letter-spacing:-1px;\">김민석</strong>"
+        String[] array2 = array1[1].split("<");
+        user_name = array2[0];
+        Log.d("Sub",user_name);
 
         MakeTimeTable makeTimeTable = new MakeTimeTable();
-        timeTable = makeTimeTable.MakeTable(intent.getStringArrayListExtra("timeTable"));
-        mask = makeTimeTable.maskTable(timeTable);
-        Log.d("test",mask);
+        timeTable = makeTimeTable.MakeTable(intent.getStringArrayListExtra("timeTable")); //시간표 만들기를 통해 개인 시간표를 만든다.
+        mask = makeTimeTable.maskTable(timeTable); // Firebase에서 쓰이는 mask 시간표를 만든다.
+
         Firebase firebase = new Firebase(); // User테이블에 정보(학번(id), 이름(name), 시간표(timeTable)을 넣는다)
-        firebase.updateUser(intent.getStringExtra("id"),intent.getStringExtra("name"));
+        firebase.updateUser(user_id, user_name, mask);
     }
 }

@@ -10,10 +10,11 @@ public class Firebase{
     DatabaseReference groupRef = rootRef.child("Group");
     DatabaseReference userRef = rootRef.child("User");
 
-    void updateUser(String id, String name){
+    void updateUser(String id, String name, String table){
         Log.d("test","updateUser 호출");
         DatabaseReference childRef = userRef.child(id);
         childRef.child("Name").setValue(name);
+        childRef.child("Table").setValue(table);
     }
 
     void updateGroup(String groupName, String id,String name){
