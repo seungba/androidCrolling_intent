@@ -15,4 +15,10 @@ public class Firebase{
         DatabaseReference childRef = userRef.child(id);
         childRef.child("Name").setValue(name);
     }
+
+    void updateGroup(String groupName, String id,String name){
+        Log.d("test","updateGroup 호출");
+        DatabaseReference childRef = groupRef.child(groupName);
+        childRef.child("Name").setValue(name);
+    }
 }

@@ -16,6 +16,7 @@ import com.google.firebase.database.ValueEventListener;
 public class SubActivity extends AppCompatActivity {
 
     String [][] timeTable;
+    String mask;
     Button groupBtn;
     String name;
 
@@ -42,7 +43,8 @@ public class SubActivity extends AppCompatActivity {
 
         MakeTimeTable makeTimeTable = new MakeTimeTable();
         timeTable = makeTimeTable.MakeTable(intent.getStringArrayListExtra("timeTable"));
-
+        mask = makeTimeTable.maskTable(timeTable);
+        Log.d("test",mask);
         Firebase firebase = new Firebase(); // User테이블에 정보(학번(id), 이름(name), 시간표(timeTable)을 넣는다)
         firebase.updateUser(intent.getStringExtra("id"),intent.getStringExtra("name"));
     }

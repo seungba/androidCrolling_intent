@@ -7,10 +7,9 @@ import java.util.ArrayList;
 class MakeTimeTable {
     public String[][] MakeTable(ArrayList<String> SubList) {
         String[][] timeTable = new String[5][20];
-        String tableMask = "";
-        for(int i=0; i < 4; i++){
+        for(int i=0; i < 5; i++){
             for(int j=0; j < 20; j++){
-                timeTable[i][j] = " ";
+                timeTable[i][j] = null;
             }
         }
         for (int i = 0; i < SubList.size(); i++) { // 강의마다 시간표에 넣는 작업
@@ -42,18 +41,21 @@ class MakeTimeTable {
                     cloStart = Integer.parseInt(time[j].substring(2, 4)); // 문자형을 상수형으로 바꿔주고 시작시간에 넣는다.
                     cloEnd = Integer.parseInt(time[j].substring(8, 10)); // " 종료시간에 넣는다.
                     clo = (cloEnd - cloStart) * 2; // 진행시간을 계산
-                    cloStart = cloStart - 9; // 시간에 8을 빼서 강의를 교시마다 넣을 수 있도록한다.
+                    cloStart = (cloStart - 9)*2; // 시간에 8을 빼서 강의를 교시마다 넣을 수 있도록한다.
                     // 분계산
                     // 시작분은 00,30분 단위로 끊어져 있다. 종료분은 15,45,50으로 되어있어 복잡하다.
                     minStart = Integer.parseInt(time[j].substring(5, 7)); // " 시작분
                     minEnd = Integer.parseInt(time[j].substring(11, 13)); // " 종료분
                     if (minStart >= 30) {
                         cloStart++;
+                        clo--;
                     }
-                    if (minEnd < 30) {
+                    if (minEnd < 30 && minEnd > 0) {
                         clo++;
+                    } else if(minEnd < 60 && minEnd > 30){
+                        clo = clo+2;
                     }
-                    for (int k = 0; k <= clo; k++) {
+                    for (int k = 0; k < clo; k++) {
                         timeTable[day][cloStart] = Subject[0];
                         cloStart++;
                     }
@@ -62,5 +64,16 @@ class MakeTimeTable {
         }
         Log.d("test","timetable완성");
         return timeTable;
+    }
+    String maskTable(String[][] timeTable){
+        String mask ="";
+        for(int i=0; i < 5; i++){
+            for(int j=0; j < 20; j++){
+                if(timeTable[i][j] == null) {
+                    mask += "0";
+                } else mask += "1";
+            }
+        }
+        return mask;
     }
 }
