@@ -27,7 +27,7 @@ public class SubActivity extends AppCompatActivity {
         groupBtn.setOnClickListener(new View.OnClickListener() {
             @Override //이벤트 감지자 등록
             public void onClick(View v) {
-                Intent intent = new Intent(SubActivity.this, Group.class);
+                Intent intent = new Intent(SubActivity.this, GroupActivity.class);
                 startActivity(intent);
             }
         });
