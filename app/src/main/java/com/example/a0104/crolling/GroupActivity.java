@@ -1,6 +1,7 @@
 package com.example.a0104.crolling;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,14 +10,19 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class GroupActivity extends AppCompatActivity {
-    String master, member;
     Button addGroupBtn;
+    String id, name, table;
+    String groupName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group);
 
+        Intent intent = getIntent();
+        id = intent.getStringExtra("id");
+        name = intent.getStringExtra("name");
+        table = intent.getStringExtra("table");
         addGroupBtn = findViewById(R.id.addGroupBtn);
         addGroupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,18 +45,16 @@ public class GroupActivity extends AppCompatActivity {
         builder.setNegativeButton("조원", new DialogInterface.OnClickListener() {
             @Override   // 조원인 경우에는 조장이 만든 그룹을 키값을 통해 들어간다.
             public void onClick(DialogInterface dialog, int which) {
-                member();
+                slave();
             }
         });
         builder.setNeutralButton("취소", new DialogInterface.OnClickListener() {
             @Override   // 취소버튼은 나간다.
             public void onClick(DialogInterface dialog, int which) {
-
             }
         });
         builder.show();
     }
-
     void master() {
         final EditText subject = new EditText(this);
 
@@ -60,7 +64,9 @@ public class GroupActivity extends AppCompatActivity {
         builder.setView(subject);
         builder.setPositiveButton("입력", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                master = subject.getText().toString();
+                groupName = subject.getText().toString();
+                Firebase firebase = new Firebase();
+                String Key = firebase.masterGroup(id);
             }
         });
         builder.setNegativeButton("취소", new DialogInterface.OnClickListener() {
@@ -70,7 +76,7 @@ public class GroupActivity extends AppCompatActivity {
         builder.show();
     }
 
-    void member() {
+    void slave() {
         final EditText key = new EditText(this);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -79,7 +85,9 @@ public class GroupActivity extends AppCompatActivity {
         builder.setView(key);
         builder.setPositiveButton("입력", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                member = key.getText().toString();
+                String Key = key.getText().toString();
+                Firebase firebase = new Firebase();
+                firebase.slaveGroup(Key, id);
             }
         });
         builder.setNegativeButton("취소", new DialogInterface.OnClickListener() {

@@ -29,6 +29,7 @@ public class SubActivity extends AppCompatActivity {
             @Override //이벤트 감지자 등록
             public void onClick(View v) {
                 Intent intent = new Intent(SubActivity.this, GroupActivity.class);
+                intent.putExtra("id",user_id);
                 startActivity(intent);
             }
         });

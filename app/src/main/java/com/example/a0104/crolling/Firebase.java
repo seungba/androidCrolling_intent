@@ -17,9 +17,16 @@ public class Firebase{
         childRef.child("Table").setValue(table);
     }
 
-    void updateGroup(String groupName, String id,String name){
+    String masterGroup(String id){
+        String Key;
         Log.d("test","updateGroup 호출");
-        DatabaseReference childRef = groupRef.child(groupName);
-        childRef.child("Name").setValue(name);
+        Key = groupRef.push().getKey();
+        groupRef.child(Key).setValue(id);
+        return Key;
+    }
+
+    void slaveGroup(String Key, String id){
+        Log.d("test", "enterGroup 호출");
+        groupRef.child(Key).setValue(id);
     }
 }
