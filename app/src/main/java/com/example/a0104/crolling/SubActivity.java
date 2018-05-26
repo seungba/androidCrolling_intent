@@ -38,7 +38,7 @@ public class SubActivity extends AppCompatActivity {
         user_name = intent.getStringExtra("name"); // html 코드 그대로 들고오기때문에 수정이 필요하다.
         user_id = intent.getStringExtra("id");
         String[] array1 = user_name.split(">"); //<strong class=\"site-font-color\" id=\"user\" style=\"float: left ;letter-spacing:-1px;\">김민석</strong>"
-        String[] array2 = array1[1].split("<");
+        String[] array2 = array1[1].split("<"); //김민석</strong>
         user_name = array2[0];
         Log.d("Sub",user_name);
 
