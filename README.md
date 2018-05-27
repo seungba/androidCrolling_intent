@@ -26,3 +26,21 @@ R오류 수정후 커밋하였음
 8. build.gradle 파일은 이미 수정되어 있습니다. 필요시 수정하세요
 
 9. 우측 상단 Sync Now 하기
+
+
+--------------------------------
+
+수정사항
+
+* GroupActivity.java
+
+  listView 동적 생성, 저장 미구현, Toast 메시지 
+
+* activity_group.xml
+
+  listView추가 Button크기조절,텍스트 추가 및 위치조절
+
+* activity_main.xml 수정
+
+  사용하지 않던 textview(classes, time) 삭제, 하단에 팀원 이름 새김(삭제해도 무방)
+
