@@ -5,15 +5,18 @@
     android:layout_height="match_parent"
     tools:context=".GroupActivity">
 
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="50dp">
-    </ListView>
-
     <Button
         android:id="@+id/addGroupBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="추가">
+    </Button>
 
+    <ListView
+        android:id="@+id/ListView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/addGroupBtn">
+    </ListView>
 
 </RelativeLayout>

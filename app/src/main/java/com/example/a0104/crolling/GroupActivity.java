@@ -6,19 +6,30 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class GroupActivity extends AppCompatActivity {
+
     Button addGroupBtn;
     String id, name, table;
     String groupName;
+    ListView listView;
+
+    ArrayAdapter<String> mAdapter;
+    ArrayList<String> dataArr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group);
-
+        settingListView(); //
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
         name = intent.getStringExtra("name");
@@ -30,6 +41,7 @@ public class GroupActivity extends AppCompatActivity {
                 groupBox();
             }
         });
+
     }
 
     void groupBox() { // addGroup 버튼을 누르면 나오는 다이얼로그박스
@@ -67,6 +79,8 @@ public class GroupActivity extends AppCompatActivity {
                 groupName = subject.getText().toString();
                 Firebase firebase = new Firebase();
                 String Key = firebase.masterGroup(id);
+                refresh(groupName);
+
             }
         });
         builder.setNegativeButton("취소", new DialogInterface.OnClickListener() {
@@ -95,5 +109,17 @@ public class GroupActivity extends AppCompatActivity {
             }
         });
         builder.show();
+    }
+
+    void settingListView(){
+        mAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1);
+        ListView listView = (ListView)findViewById(R.id.ListView1);
+        listView.setAdapter(mAdapter);
+    }
+
+    void refresh (String $groupName){
+        mAdapter.add($groupName);
+        mAdapter.notifyDataSetChanged();
+        Toast.makeText(this, "데이터가 추가되었습니다.", Toast.LENGTH_SHORT).show();
     }
 }

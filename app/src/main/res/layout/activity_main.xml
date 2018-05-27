@@ -89,23 +89,17 @@
         android:layout_marginTop="10dp"
         android:layout_gravity="center"/>
 
-        <TextView
-            android:id="@+id/classes"
-            android:layout_width="105dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:scrollbars="vertical" />
-
-        <TextView
-            android:id="@+id/time"
-            android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:scrollbars="vertical"
-            android:layout_below="@+id/classes"/>
-
     </LinearLayout>
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="5dp"
+        android:gravity="center"
+        android:text="Copyright 2018. MinSeok KIM, JongSeok KIM, SeungJun LEE." />
 </RelativeLayout>
