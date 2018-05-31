@@ -1,5 +1,6 @@
 package com.example.a0104.crolling;
 
+import android.telecom.Call;
 import android.util.Log;
 
 import com.google.firebase.database.DataSnapshot;
@@ -8,7 +9,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class Firebase{
+public class Firebase {
     DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference groupRef = rootRef.child("Group");
     DatabaseReference userRef = rootRef.child("User");
@@ -28,21 +29,25 @@ public class Firebase{
         groupRef.child(Key).child("조 이름").setValue(groupName);
         return Key;
     }
-
-    public String slaveGroup(final String Key, String id, String table){
-        final String[] groupName = {null};
-
+    
+    public void slaveGroup(final String Key, String id, String table) {
+        final String[] groupName = new String[1];
+        final Callback callback = null;
         groupRef.child(Key).child(id).setValue(table);
+        Log.d("test","1번");
         groupRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                groupName[0] = dataSnapshot.child(Key).child("조 이름").getValue(String.class).toString();
-                Log.d("test",groupName[0]);
+                if (dataSnapshot.hasChild(Key)) {
+                    callback.success(dataSnapshot.child(Key).child("조 이름").getValue(String.class).toString());
+                }
             }
             @Override
             public void onCancelled(DatabaseError error) {
             }
         });
-        return groupName[0];
+    }
+    public interface Callback{
+        String success(String data);
     }
 }

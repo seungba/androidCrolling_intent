@@ -64,16 +64,20 @@ public class GroupActivity extends AppCompatActivity {
     void master() {
         final EditText subject = new EditText(this);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("조별과제 - 조장");
-        builder.setMessage("과목명을 입력해주세요.");
+        builder.setMessage("그룹 이름을 입력해주세요.");
         builder.setView(subject);
         builder.setPositiveButton("입력", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 groupName = subject.getText().toString();
-                Firebase firebase = new Firebase();
-                String Key = firebase.masterGroup(id, table, groupName);
-                check();
+                if (groupName == ""){
+                    emptyError();
+                } else {
+                    Firebase firebase = new Firebase();
+                    String Key = firebase.masterGroup(id, table, groupName);
+                    refresh(groupName);
+                }
             }
         });
         builder.setNegativeButton("취소", new DialogInterface.OnClickListener() {
@@ -93,24 +97,16 @@ public class GroupActivity extends AppCompatActivity {
         builder.setPositiveButton("입력", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 String Key = key.getText().toString();
-                Firebase firebase = new Firebase();
-                groupName = firebase.slaveGroup(Key, id, table);
-                check();
+                if (Key == "") {
+                    emptyError();
+                } else {
+                    Firebase firebase = new Firebase();
+                    firebase.slaveGroup(Key, id, table);
+                }
             }
         });
         builder.setNegativeButton("취소", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-            }
-        });
-        builder.show();
-    }
-    void check() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("조별과제 그룹만들기");
-        builder.setMessage("그룹을 만듭니다.");
-        builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-
             }
         });
         builder.show();
@@ -126,5 +122,12 @@ public class GroupActivity extends AppCompatActivity {
         mAdapter.add($groupName);
         mAdapter.notifyDataSetChanged();
         Toast.makeText(this, "데이터가 추가되었습니다.", Toast.LENGTH_SHORT).show();
+    }
+
+    void emptyError() {
+        Toast.makeText(this,"데이터가 입력되지 않았습니다.", Toast.LENGTH_SHORT).show();
+    }
+
+    private class Callback {
     }
 }
