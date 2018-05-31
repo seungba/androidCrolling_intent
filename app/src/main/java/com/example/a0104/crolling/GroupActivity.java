@@ -19,11 +19,9 @@ public class GroupActivity extends AppCompatActivity {
 
     Button addGroupBtn;
     String id, name, table;
-    String groupName;
-    ListView listView;
+    String groupName = null;
 
     ArrayAdapter<String> mAdapter;
-    ArrayList<String> dataArr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +30,6 @@ public class GroupActivity extends AppCompatActivity {
         settingListView(); //
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
-        name = intent.getStringExtra("name");
         table = intent.getStringExtra("table");
         addGroupBtn = findViewById(R.id.addGroupBtn);
         addGroupBtn.setOnClickListener(new View.OnClickListener() {
@@ -41,7 +38,6 @@ public class GroupActivity extends AppCompatActivity {
                 groupBox();
             }
         });
-
     }
 
     void groupBox() { // addGroup 버튼을 누르면 나오는 다이얼로그박스
@@ -78,9 +74,8 @@ public class GroupActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 groupName = subject.getText().toString();
                 Firebase firebase = new Firebase();
-                String Key = firebase.masterGroup(id);
+                String Key = firebase.masterGroup(id, table, groupName);
                 refresh(groupName);
-
             }
         });
         builder.setNegativeButton("취소", new DialogInterface.OnClickListener() {
@@ -101,7 +96,10 @@ public class GroupActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 String Key = key.getText().toString();
                 Firebase firebase = new Firebase();
-                firebase.slaveGroup(Key, id);
+                groupName = firebase.slaveGroup(Key, id, table);
+                if (!(groupName==null)){
+                    refresh(groupName);
+                }
             }
         });
         builder.setNegativeButton("취소", new DialogInterface.OnClickListener() {

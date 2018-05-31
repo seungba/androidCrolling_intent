@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("LoginBtn","onClick 호출됨");
                 id = ID.getText().toString(); //아이디 입력창의 데이터를 들고와서 문자열으로 받는다.
                 pw = PW.getText().toString(); //비밀번호 입력창의 데이터를 들고와서 문자열으로 받는다.
-                Log.d("LoginBtn","아이디"+id + ", 비밀번호"+pw);
 
                 GetData getData = new GetData();
                 getData.start();

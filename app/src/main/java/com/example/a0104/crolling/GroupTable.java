@@ -12,5 +12,7 @@ public class GroupTable extends AppCompatActivity {
         setContentView(R.layout.activity_group_table);
         Intent intent = getIntent();
         String Key = intent.getStringExtra("Key");
+
+
     }
 }
