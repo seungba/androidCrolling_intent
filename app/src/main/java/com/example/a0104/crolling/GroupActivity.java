@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -12,11 +13,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 public class GroupActivity extends AppCompatActivity {
-
     Button addGroupBtn;
     String id, name, table;
     String groupName = null;
@@ -27,7 +25,7 @@ public class GroupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group);
-        settingListView(); //
+        settingListView();
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
         table = intent.getStringExtra("table");
@@ -75,7 +73,7 @@ public class GroupActivity extends AppCompatActivity {
                 groupName = subject.getText().toString();
                 Firebase firebase = new Firebase();
                 String Key = firebase.masterGroup(id, table, groupName);
-                refresh(groupName);
+                check();
             }
         });
         builder.setNegativeButton("취소", new DialogInterface.OnClickListener() {
@@ -97,13 +95,22 @@ public class GroupActivity extends AppCompatActivity {
                 String Key = key.getText().toString();
                 Firebase firebase = new Firebase();
                 groupName = firebase.slaveGroup(Key, id, table);
-                if (!(groupName==null)){
-                    refresh(groupName);
-                }
+                check();
             }
         });
         builder.setNegativeButton("취소", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        builder.show();
+    }
+    void check() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("조별과제 그룹만들기");
+        builder.setMessage("그룹을 만듭니다.");
+        builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+
             }
         });
         builder.show();
