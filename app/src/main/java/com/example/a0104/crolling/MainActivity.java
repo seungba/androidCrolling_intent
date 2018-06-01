@@ -19,7 +19,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+/*
+로그인 페이지 -> 데이터가 없을때 실행되는 액티비티
+GetData(Thread) -> 받아온 아이디와 패스워드를 통해 대구대 LMS 사이트로 들어가서 시간표를 크롤링 해온다.
+getData.join() -> 쓰레드가 실행되기전에 다음 코드가 진행되면 오류가 생기기때문에 쓰레드가 끝날 떄까지 기다린다.
+SharedPreferences -> 데이터를 저장한다.( 학번, 이름, 테이블 마스크 )
+firebase.updateUser -> 파이어베이스 User 테이블에 업데이트 (기존에 데이터가 없다면 새로 추가, 있다면 업데이트)
+인텐트를 통해서 학번, 이름, 테이블 마스크를 넣어 보낸다.
 
+문제점 : 데이터 저장 -> 2차워배열로 만들어진 table 이 저장되질 않는다.
+        로그인 -> 로그인할때 틀렸을 경우에 오류 (경고 메시지 필요하다)
+*/
 public class MainActivity extends AppCompatActivity {
     ArrayList<String> timeTable = new ArrayList<>();
     EditText ID,PW;

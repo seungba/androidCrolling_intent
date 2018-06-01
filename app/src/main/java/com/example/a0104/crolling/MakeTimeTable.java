@@ -3,6 +3,16 @@ package com.example.a0104.crolling;
 import android.util.Log;
 
 import java.util.ArrayList;
+/*
+대구대 LMS 에서 크롤링 해온 시간표 데이터(ArrayLsit) 를 파싱한다.
+MakeTimeTable -> ArrayList 에는 [과목][시간][과목][시간]... 순으로 저장이 되어있다
+              예) 과목 '모바일프로그래밍'  시간 월(09:00~10:15), 목(13:30~14:45)
+              과목명이 저장된 상태로 시간을 시간별로 나누어 배열로 저장한다
+              시간[0] = 월(09:00~10:15), 시간[1] = 목(13:30~14:45)
+              시간을 요일별 분류 후 시간에 따라 timeTable[][]에 저장
+maskTable -> MakeTable 에서 만들어진 테이블을 0와 1의 값으로만 저장
+            데이터가 있으면 1, 없으면 0으로 저장한다.
+*/
 
 class MakeTimeTable {
     public String[][] MakeTable(ArrayList<String> SubList) {

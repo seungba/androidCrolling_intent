@@ -7,6 +7,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+/*
+LoadingActivity 에서 바로 올 수도 있고, MainActivity 에서 올 수도 있다.
+기본 메인화면이다 -> 시간표를 보여준다 (미완성)
+                -> 조별과제 액티비티로 갈때 학번, 테이블 마스크를 보낸다.
+                -> 로그인을 통해서 시간표 업데이트가 가능하다 (MainActivity)
+*/
 
 public class SubActivity extends AppCompatActivity { // 메인 액티비티에서 가져온 값으로 테이블을 만들고, 데이터를 저장하기 위한 액티비티
 
