@@ -1,6 +1,7 @@
 package com.example.a0104.crolling;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,8 +23,9 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
     ArrayList<String> timeTable = new ArrayList<>();
     EditText ID,PW;
-    private String name = null;
-    private String id,pw;
+    private String name = null, id, pw;
+    String[][] table;
+    String mask;
     Button Login;
 
     @Override
@@ -50,11 +52,30 @@ public class MainActivity extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                Intent intent = new Intent(MainActivity.this,SubActivity.class);
-                intent.putStringArrayListExtra("timeTable",timeTable); //시간표 넣는다.
-                intent.putExtra("name",name);
+                String[] array1 = name.split(">"); //<strong class=\"site-font-color\" id=\"user\" style=\"float: left ;letter-spacing:-1px;\">김민석</strong>"
+                String[] array2 = array1[1].split("<"); //김민석</strong>
+                name = array2[0];  //김민석
+
+                MakeTimeTable makeTimeTable = new MakeTimeTable();
+                table = makeTimeTable.MakeTable(timeTable); //시간표 만들기를 통해 개인 시간표를 만든다.
+                mask = makeTimeTable.maskTable(table); // Firebase에서 쓰이는 mask 시간표를 만든다.
+
+                SharedPreferences pref =getSharedPreferences("User", MODE_PRIVATE);
+                SharedPreferences.Editor editor = pref.edit();
+                editor.putString("ID", id);
+                editor.putString("Name", name);
+                editor.putString("tableMask", mask);
+                editor.commit(); //데이터 저장
+
+                Firebase firebase = new Firebase(); // User 테이블에 정보(학번(id), 이름(name), 시간표(timeTable)을 넣는다)
+                firebase.updateUser(id, name, mask);
+
+                Intent intent = new Intent(MainActivity.this, SubActivity.class);
                 intent.putExtra("id",id);
+                intent.putExtra("name",name);
+                intent.putExtra("table", table);
                 startActivity(intent);
+
                 Log.d("LoginBtn", "onClick 종료");
             }
         });//이벤트 감지자

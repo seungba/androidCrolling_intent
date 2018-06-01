@@ -1,6 +1,5 @@
 package com.example.a0104.crolling;
 
-import android.telecom.Call;
 import android.util.Log;
 
 import com.google.firebase.database.DataSnapshot;
@@ -21,6 +20,11 @@ public class Firebase {
         childRef.child("Table").setValue(table);
     }
 
+    public void groupList(String id){
+        Log.d("test","groupList 호출");
+
+    }
+
     String masterGroup(String id, String table, String groupName){ // 조장이 만드는 그룹, 랜덤으로 만들어진 Key 값을 만들어내며, 다른 조원이 들어올 수 있도록한다.
         // 과목명을 Group/(Key)/groupName 속에 넣을 수 있도록 한다.
         Log.d("test","masterGroup 호출");
@@ -31,23 +35,6 @@ public class Firebase {
     }
     
     public void slaveGroup(final String Key, String id, String table) {
-        final String[] groupName = new String[1];
-        final Callback callback = null;
         groupRef.child(Key).child(id).setValue(table);
-        Log.d("test","1번");
-        groupRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.hasChild(Key)) {
-                    callback.success(dataSnapshot.child(Key).child("조 이름").getValue(String.class).toString());
-                }
-            }
-            @Override
-            public void onCancelled(DatabaseError error) {
-            }
-        });
-    }
-    public interface Callback{
-        String success(String data);
     }
 }
