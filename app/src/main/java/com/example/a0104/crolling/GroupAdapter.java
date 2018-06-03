@@ -55,7 +55,6 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.GroupViewHol
 
     @Override
     public void onGroupClicked(int position) {
-       Log.d("test", "Clicked"+position);
        Intent intent = new Intent(context,GroupTable.class);
        intent.putExtra("groupName", String.valueOf(groupLists.get(0)));
        context.startActivity(intent);

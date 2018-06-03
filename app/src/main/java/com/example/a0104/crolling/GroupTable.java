@@ -22,17 +22,9 @@ public class GroupTable extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_table);
 
-        Intent intent = getIntent();
-        String groupName = intent.getStringExtra("groupName");
-        String key = intent.getStringExtra("key");
+        //Intent intent = getIntent();
+        //String groupName = intent.getStringExtra("groupName");
+        //String key = intent.getStringExtra("key");
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle(groupName);
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setDisplayShowHomeEnabled(true);
-    }
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
     }
 }
