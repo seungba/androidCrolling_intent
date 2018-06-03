@@ -4,7 +4,9 @@ import android.util.Log;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
+/*
+Firebase 구현 코드, 현재는 User 저장용으로만 사용
+*/
 public class Firebase {
     DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference userRef = rootRef.child("User");

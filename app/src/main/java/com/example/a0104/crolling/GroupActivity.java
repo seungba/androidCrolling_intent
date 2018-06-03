@@ -29,10 +29,14 @@ import java.lang.reflect.Array;
 import java.security.acl.Group;
 import java.util.ArrayList;
 import java.util.List;
-
+/*
+SubActivity 에서 조별과제 버튼을 통해서 올 수 있다.
+Firebase 의 그룹 테이블에서 자신의 학번이 들어있는 그룹만 RecyclerView 로 업데이트한다.
+*/
 public class GroupActivity extends AppCompatActivity {
     Button addGroupBtn;
     String id, table;
+
     private List<GroupModel> groupList = new ArrayList<>();
     FirebaseDatabase firebaseDatabase;
     DatabaseReference mRef;
@@ -62,18 +66,19 @@ public class GroupActivity extends AppCompatActivity {
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         mRef = firebaseDatabase.getReference("Group");
+        Query query = mRef.orderByChild(id).equalTo(table);
 
-        mRef.addValueEventListener(new ValueEventListener() {
+        query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Log.d("test","onDataChange "+dataSnapshot.toString());
-                //groupList.clear();
-                for (DataSnapshot child : dataSnapshot.getChildren()){
+                Log.d("test", "onDataChange " + dataSnapshot.toString());
+                groupList.clear();
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
                     GroupModel groupModel = child.getValue(GroupModel.class);
                     groupList.add(groupModel);
                 }
                 adapter.addGroup(groupList);
-                //adapter.notifyDataSetChanged();
+                adapter.notifyDataSetChanged();
             }
 
             @Override
