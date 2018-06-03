@@ -7,17 +7,17 @@
     android:background="#32CD32">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_weight="1"
         android:background="#32CD32"
         android:layout_gravity="center"
-        android:src="@drawable/symbol_3"/>
+        android:src="@drawable/symbol_2"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
+        android:layout_weight="1"
         android:text="인싸"
         android:background="#32CD32"
         android:textColor="#FFFFFF"
@@ -30,7 +30,7 @@
         android:layout_weight="2"
         android:background="#32CD32"
         android:textColor="#FFFFFF"
-        android:text="Now Loading.."
+        android:text="Now Loading..."
         android:textSize="30dp"
         android:layout_gravity="center_vertical|center_horizontal"/>
 </LinearLayout>
