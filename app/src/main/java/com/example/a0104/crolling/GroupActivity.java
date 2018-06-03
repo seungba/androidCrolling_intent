@@ -9,27 +9,33 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerAdapter_LifecycleAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.FirebaseOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
-import org.xmlpull.v1.XmlPullParser;
+import java.lang.reflect.Array;
+import java.security.acl.Group;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GroupActivity extends AppCompatActivity {
     Button addGroupBtn;
-    String id, name, table;
-    RecyclerView groupList;
-    DatabaseReference groupRef;
+    String id, table;
+    private List<GroupModel> groupList = new ArrayList<>();
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference mRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +45,6 @@ public class GroupActivity extends AppCompatActivity {
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
         table = intent.getStringExtra("table");
-
         addGroupBtn = findViewById(R.id.addGroupBtn);
         addGroupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,61 +53,35 @@ public class GroupActivity extends AppCompatActivity {
             }
         });
 
-        groupList = findViewById(R.id.groupList);
-        groupList.setLayoutManager(new LinearLayoutManager(this));
-        groupRef = FirebaseDatabase.getInstance().getReference("Group");
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        final GroupAdapter adapter = new GroupAdapter(this);
 
-        FirebaseGroupList();
-        Log.d("test","여기까지 호출");
-    }
-    private void FirebaseGroupList() {
-        Log.d("test","그룹리스트 호출");
-        Query firebaseGroupQuery = groupRef.orderByChild(id);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
 
-        final FirebaseRecyclerOptions<Group> options = new FirebaseRecyclerOptions.Builder<Group>()
-                .setQuery(firebaseGroupQuery,Group.class)
-                .build();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        mRef = firebaseDatabase.getReference("Group");
 
-        FirebaseRecyclerAdapter<Group, GroupViewHolder> firebaseRecyclerAdapter =
-                new FirebaseRecyclerAdapter<Group, GroupViewHolder> (options) {
+        mRef.addValueEventListener(new ValueEventListener() {
             @Override
-            protected void onBindViewHolder(@NonNull GroupViewHolder holder, int position, @NonNull Group model) {
-                holder.setDetails(model.getGroupName(),model.getKey());
-                Log.d("test","바인더 호출");
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Log.d("test","onDataChange "+dataSnapshot.toString());
+                //groupList.clear();
+                for (DataSnapshot child : dataSnapshot.getChildren()){
+                    GroupModel groupModel = child.getValue(GroupModel.class);
+                    groupList.add(groupModel);
+                }
+                adapter.addGroup(groupList);
+                //adapter.notifyDataSetChanged();
             }
 
-            @NonNull
             @Override
-            public GroupViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                Log.d("test","크리에이트 호출");
-                View v = LayoutInflater.from(parent.getContext()).inflate((XmlPullParser) groupList, parent, false);
-                return new GroupViewHolder(v);
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.d("test","onCancelled ");
             }
-        };
-        groupList.setAdapter(firebaseRecyclerAdapter);
+        });
     }
-
-    //ViewHolder class
-    public static class GroupViewHolder extends RecyclerView.ViewHolder{
-        View mView;
-        public GroupViewHolder(View itemView) {
-            super(itemView);
-            mView = itemView;
-        }
-        public void setDetails(String group_Name, String group_Key){
-            Log.d("test","디테일 호출");
-            TextView groupName = mView.findViewById(R.id.groupName);
-            TextView Key = mView.findViewById(R.id.Key);
-
-            groupName.setText(group_Name);
-            Key.setText(group_Key);
-        }
-    }
-
-
-
-
-
 
     void groupBox() { // addGroup 버튼을 누르면 나오는 다이얼로그박스
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -127,6 +106,7 @@ public class GroupActivity extends AppCompatActivity {
         });
         builder.show();
     }
+
     void master() {
         final EditText subject = new EditText(this);
         final String[] subject_name = new String[1];
@@ -142,9 +122,10 @@ public class GroupActivity extends AppCompatActivity {
                     emptyError();
                 } else {
                     Log.d("test","master 추가");
-                    String Key = groupRef.push().getKey(); // 그룹을 만들고 그룹의 키값을 가져온다.
-                    groupRef.child(Key).child(id).setValue(table);
-                    groupRef.child(Key).child("조 이름").setValue(subject_name[0]);
+                    String Key = mRef.push().getKey(); // 그룹을 만들고 그룹의 키값을 가져온다.
+                    mRef.child(Key).child(id).setValue(table); // id->key, table->value
+                    mRef.child(Key).child("groupName").setValue(subject_name[0]); //과목명
+                    mRef.child(Key).child("key").setValue(Key); //키
                 }
             }
         });
@@ -169,7 +150,7 @@ public class GroupActivity extends AppCompatActivity {
                     emptyError();
                 } else {
                     Log.d("test","slave 추가");
-                    groupRef.child(Key).child(id).setValue(table);
+                    mRef.child(Key).child(id).setValue(table);
                 }
             }
         });

@@ -1,7 +1,10 @@
 package com.example.a0104.crolling;
 
-public class Group {
-    public String groupName, Key;
+public class GroupModel {
+    private String groupName;
+    private String key;
+
+    public GroupModel() { }
 
     public String getGroupName() {
         return groupName;
@@ -12,15 +15,10 @@ public class Group {
     }
 
     public String getKey() {
-        return Key;
+        return key;
     }
 
     public void setKey(String key) {
-        Key = key;
-    }
-
-    public Group(String groupName, String Key) {
-        this.groupName = groupName;
-        this.Key = Key;
+        this.key = key;
     }
 }
