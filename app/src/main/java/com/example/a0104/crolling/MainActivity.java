@@ -85,8 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("name",name);
                 intent.putExtra("table", table);
                 startActivity(intent);
-
-                Log.d("LoginBtn", "onClick 종료");
+                finish();
             }
         });//이벤트 감지자
     }

@@ -1,6 +1,7 @@
 package com.example.a0104.crolling;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ViewGroup;
@@ -15,18 +16,23 @@ import com.google.firebase.database.DatabaseError;
 import java.util.ArrayList;
 
 public class GroupTable extends AppCompatActivity {
-    Firebase firebase = new Firebase();
-    ArrayList<String> mUsernames;
-    ListView mListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_table);
-        Intent intent = getIntent();
-        String Key = intent.getStringExtra("Key");
 
-        CheckBox checkBox = new CheckBox(GroupTable.this);
-        checkBox.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        Intent intent = getIntent();
+        String groupName = intent.getStringExtra("groupName");
+        String key = intent.getStringExtra("key");
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle(groupName);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
+    }
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

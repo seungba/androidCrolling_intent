@@ -49,6 +49,7 @@ public class SubActivity extends AppCompatActivity { // 메인 액티비티에�
             public void onClick(View v) {
                 Intent intent2 = new Intent(SubActivity.this, MainActivity.class);
                 startActivity(intent2);
+                finish();
             }
         });
     }

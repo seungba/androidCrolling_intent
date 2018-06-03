@@ -1,17 +1,22 @@
 package com.example.a0104.crolling;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.GroupViewHolder>{
+public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.GroupViewHolder> implements OnGroupClickListener{
     private Context context;
     private List<GroupModel> groupLists;
 
@@ -28,7 +33,9 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.GroupViewHol
     @NonNull
     @Override
     public GroupViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new GroupViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_layout,parent,false));
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        View view = layoutInflater.inflate(R.layout.custom_layout, parent,false);
+        return new GroupViewHolder(view,this);
     }
 
     @Override
@@ -46,14 +53,30 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.GroupViewHol
         return 0;
     }
 
+    @Override
+    public void onGroupClicked(int position) {
+       Log.d("test", "Clicked"+position);
+       Intent intent = new Intent(context,GroupTable.class);
+       intent.putExtra("groupName", String.valueOf(groupLists.get(0)));
+       context.startActivity(intent);
+    }
+
     class GroupViewHolder extends RecyclerView.ViewHolder{
         private TextView groupNameView, keyView;
 
-        public GroupViewHolder(View itemView){
+        public GroupViewHolder(View itemView, final OnGroupClickListener onGroupClickListener){
             super(itemView);
-
             groupNameView = itemView.findViewById(R.id.groupNameView);
             keyView = itemView.findViewById(R.id.keyView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION){
+                        onGroupClickListener.onGroupClicked(position);
+                    }
+                }
+            });
         }
     }
 }

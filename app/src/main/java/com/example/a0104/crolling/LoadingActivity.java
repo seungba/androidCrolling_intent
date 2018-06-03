@@ -39,5 +39,6 @@ public class LoadingActivity extends AppCompatActivity {
             intent2.putExtra("table",table);
             startActivity(intent2);
         }
+        finish();
     }
 }
