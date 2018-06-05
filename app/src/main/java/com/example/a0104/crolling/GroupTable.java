@@ -42,10 +42,10 @@ public class GroupTable extends AppCompatActivity {
         group_query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-               /* RadioButton radioButton = new RadioButton();
+                RadioButton radioButton = new RadioButton(getBaseContext());
                 radioButton.setId(Integer.parseInt(dataSnapshot.getKey()));
                 radioButton.setText(dataSnapshot.getKey());
-                radioButton.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));*/
+                radioButton.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             }
 
             @Override

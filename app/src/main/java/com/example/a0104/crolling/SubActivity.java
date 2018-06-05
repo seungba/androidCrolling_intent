@@ -33,7 +33,7 @@ public class SubActivity extends AppCompatActivity { // 메인 액티비티에�
         final String table = intent.getStringExtra("table");
 
 
-        ArrayList<String> timeTable = new ArrayList<>();
+        ArrayList<String> timeTable;
         timeTable = GroupTime(table);
         MONDAY_0(timeTable.get(0));//timeTable.get(0)
         tuesday_0(timeTable.get(1));
@@ -72,7 +72,7 @@ public class SubActivity extends AppCompatActivity { // 메인 액티비티에�
         table.add(mask.substring(20, 40));
         table.add(mask.substring(40, 60));
         table.add(mask.substring(60, 80));
-        table.add(mask.substring(80, 10));
+        table.add(mask.substring(80, 100));
         return table;
     }
 
