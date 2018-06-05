@@ -3,4 +3,9 @@
     <color name="colorPrimary">#009900</color>
     <color name="colorPrimaryDark">#336633</color>
     <color name="colorAccent">#006600</color>
+    <color name="Table_row_1">#2EFE9A</color>
+    <color name="Table_row_2">#F5A9A9</color>
+    <color name="Table_row_3">#A9E2F3</color>
+    <color name="Table_row_4">#A9F5A9</color>
+    <color name="Table_row_5">#BCA9F5</color>
 </resources>

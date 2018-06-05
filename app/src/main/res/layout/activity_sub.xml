@@ -74,7 +74,7 @@
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
             </TableRow>
-
+            //요일
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -98,7 +98,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="월"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -109,7 +108,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="화"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -120,7 +118,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="수"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -131,7 +128,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="목"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -142,7 +138,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="금"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
             </TableRow>
@@ -170,7 +165,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="월"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -181,7 +175,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="화"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -192,7 +185,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="수"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -203,7 +195,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="목"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -214,7 +205,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="금"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
             </TableRow>
@@ -242,7 +232,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="월"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -253,7 +242,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="화"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -264,7 +252,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="수"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -275,7 +262,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="목"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -286,7 +272,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="금"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
             </TableRow>
@@ -314,7 +299,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="월"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -325,7 +309,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="화"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -336,7 +319,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="수"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -347,7 +329,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="목"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -358,7 +339,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="금"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
             </TableRow>
@@ -386,7 +366,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="월"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -397,7 +376,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="화"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -408,7 +386,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="수"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -419,7 +396,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="목"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -430,7 +406,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="금"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
             </TableRow>
@@ -458,7 +433,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="월"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -469,7 +443,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="화"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -480,7 +453,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="수"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -491,7 +463,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="목"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -502,7 +473,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="금"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
             </TableRow>
@@ -530,7 +500,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="월"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -541,7 +510,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="화"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -552,7 +520,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="수"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -563,7 +530,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="목"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -574,7 +540,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="금"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
             </TableRow>
@@ -602,7 +567,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="월"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -613,7 +577,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="화"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -624,7 +587,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="수"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -635,7 +597,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="목"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -646,7 +607,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="금"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
             </TableRow>
@@ -674,7 +634,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="월"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -685,7 +644,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="화"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -696,7 +654,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="수"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -707,7 +664,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="목"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -718,7 +674,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="금"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
             </TableRow>
@@ -746,7 +701,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="월"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -757,7 +711,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="화"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -768,7 +721,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="수"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -779,7 +731,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="목"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -790,7 +741,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="금"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
             </TableRow>
@@ -818,7 +768,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="월"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -829,7 +778,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="화"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -840,7 +788,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="수"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -851,7 +798,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="목"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -862,7 +808,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="금"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
             </TableRow>
@@ -890,7 +835,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="월"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -901,7 +845,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="화"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -912,7 +855,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="수"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -923,7 +865,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="목"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -934,7 +875,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="금"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
             </TableRow>
@@ -962,7 +902,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="월"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -973,7 +912,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="화"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -984,7 +922,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="수"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -995,7 +932,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="목"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -1006,7 +942,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="금"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
             </TableRow>
@@ -1034,7 +969,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="월"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -1045,7 +979,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="화"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -1056,7 +989,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="수"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -1067,7 +999,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="목"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -1078,7 +1009,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="금"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
             </TableRow>
@@ -1106,7 +1036,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="월"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -1117,7 +1046,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="화"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -1128,7 +1056,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="수"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -1139,7 +1066,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="목"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -1150,7 +1076,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="금"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
             </TableRow>
@@ -1178,7 +1103,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="월"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -1189,7 +1113,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="화"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -1200,7 +1123,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="수"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -1211,7 +1133,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="목"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -1222,7 +1143,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="금"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
             </TableRow>
@@ -1250,7 +1170,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="월"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -1261,7 +1180,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="화"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -1272,7 +1190,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="수"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -1283,7 +1200,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="목"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -1294,7 +1210,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="금"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
             </TableRow>
@@ -1322,7 +1237,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="월"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -1333,7 +1247,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="화"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -1344,7 +1257,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="수"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -1355,7 +1267,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="목"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -1366,7 +1277,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="금"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
             </TableRow>
@@ -1394,7 +1304,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="월"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -1405,7 +1314,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="화"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -1416,7 +1324,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="수"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -1427,7 +1334,6 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="목"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
 
@@ -1438,7 +1344,73 @@
                     android:layout_weight="3"
                     android:background="@drawable/cell_shape"
                     android:gravity="center"
-                    android:text="금"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorPrimaryDark">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/colorPrimaryDark"
+                    android:gravity="center"
+                    android:text="18:30"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/monday19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@drawable/cell_shape"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tuesday19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@drawable/cell_shape"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/wednesday19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@drawable/cell_shape"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/thursday19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@drawable/cell_shape"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/friday19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@drawable/cell_shape"
+                    android:gravity="center"
                     android:textColor="#ffffff"
                     android:textStyle="bold" />
             </TableRow>

@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 /*
 LoadingActivity 에서 바로 올 수도 있고, MainActivity 에서 올 수도 있다.
 기본 메인화면이다 -> 시간표를 보여준다 (미완성)
@@ -24,10 +26,19 @@ public class SubActivity extends AppCompatActivity { // 메인 액티비티에�
         Log.d("Sub","onCreate 호출");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub);
+
         final Intent intent = getIntent();
         final String id = intent.getStringExtra("id");
         final String name = intent.getStringExtra("name");
         final String table = intent.getStringExtra("table");
+
+        GroupTime groupTime = null;
+        ArrayList<String> timeTable = new ArrayList<>();
+        MONDAY_0();//timeTable.get(0)
+        tuesday_0();
+        wednesday_0();
+        thursday_0();
+        friday_0();
 
         nameView = findViewById(R.id.nameView);
         nameView.setText(name);
@@ -53,4 +64,41 @@ public class SubActivity extends AppCompatActivity { // 메인 액티비티에�
             }
         });
     }
+
+    void MONDAY_0(){
+        for(int i = 0; i < 19; i++){
+            int getid = getResources().getIdentifier("monday" + i, "id", "com.example.a0104.crolling");
+            final TextView textView = findViewById(getid);
+            textView.setBackgroundColor(getColor(R.color.Table_row_1));
+        }
+    }
+    void tuesday_0() {
+        for (int i = 0; i < 19; i++) {
+            int getid = getResources().getIdentifier("tuesday" + i, "id", "com.example.a0104.crolling");
+            final TextView textView = findViewById(getid);
+            textView.setBackgroundColor(getColor(R.color.Table_row_2));
+        }
+    }
+    void wednesday_0() {
+        for (int i = 0; i < 19; i++) {
+            int getid = getResources().getIdentifier("wednesday" + i, "id", "com.example.a0104.crolling");
+            final TextView textView = findViewById(getid);
+            textView.setBackgroundColor(getColor(R.color.Table_row_3));
+        }
+    }
+    void thursday_0() {
+        for (int i = 0; i < 19; i++) {
+            int getid = getResources().getIdentifier("thursday" + i, "id", "com.example.a0104.crolling");
+            final TextView textView = findViewById(getid);
+            textView.setBackgroundColor(getColor(R.color.Table_row_4));
+        }
+    }
+    void friday_0() {
+        for (int i = 0; i < 19; i++) {
+            int getid = getResources().getIdentifier("friday" + i, "id", "com.example.a0104.crolling");
+            final TextView textView = findViewById(getid);
+            textView.setBackgroundColor(getColor(R.color.Table_row_5));
+        }
+    }
+
 }
