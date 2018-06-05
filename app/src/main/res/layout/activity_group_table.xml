@@ -6,8 +6,16 @@
     tools:context=".GroupTable">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="그룹 테이블"
+        android:id="@+id/group_groupName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="groupName"
         android:textSize="30dp"/>
+    <TextView
+        android:id="@+id/group_key"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="key"
+        android:textSize="30dp"
+        android:layout_below="@id/group_groupName"/>
 </RelativeLayout>
