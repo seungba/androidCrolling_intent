@@ -5,17 +5,8 @@
     android:layout_height="match_parent"
     tools:context=".GroupTable">
 
-    <TextView
-        android:id="@+id/group_groupName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="groupName"
-        android:textSize="30dp"/>
-    <TextView
-        android:id="@+id/group_key"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="key"
-        android:textSize="30dp"
-        android:layout_below="@id/group_groupName"/>
+   <Button
+       android:id="@+id/check"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" />
 </RelativeLayout>
