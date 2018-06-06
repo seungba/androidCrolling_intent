@@ -10,7 +10,6 @@ Firebase 구현 코드, 현재는 User 저장용으로만 사용
 public class Firebase {
     DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference userRef = rootRef.child("User");
-    DatabaseReference groupRef = rootRef.child("Group");
 
     void updateUser(String id, String name, String table){ // 로그인 후에 firebase 에 연결하여 user 테이블에 id,name,table 이 입력된다.
         Log.d("test","updateUser 호출");

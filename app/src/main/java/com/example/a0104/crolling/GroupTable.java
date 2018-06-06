@@ -5,11 +5,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -25,18 +23,21 @@ public class GroupTable extends AppCompatActivity {
     DatabaseReference groupRef = rootRef.child("Group");
     ArrayList<String> memberList;
     Button check;
+    TextView count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_table);
         check = findViewById(R.id.check);
+        count = findViewById(R.id.count);
 
         Intent intent = getIntent();
         final String groupName = intent.getStringExtra("groupName");
         final String key = intent.getStringExtra("key");
 
         memberList = new ArrayList<>();
+        final int[] memberCount = {0};
         Query group_query = groupRef.child(key);
         group_query.addChildEventListener(new ChildEventListener() {
             @Override
@@ -44,6 +45,8 @@ public class GroupTable extends AppCompatActivity {
                 if (!(dataSnapshot.getValue().equals(groupName) || dataSnapshot.getValue().equals(key))) {
                     memberList.add(dataSnapshot.getKey());
                     memberList.add(String.valueOf(dataSnapshot.getValue()));
+                    memberCount[0]++;
+                    count.setText("현재 조원 수: "+ memberCount[0] +"명");
                 }
             }
 
@@ -74,6 +77,7 @@ public class GroupTable extends AppCompatActivity {
                 Intent intent1 = new Intent(GroupTable.this, CheckMember.class);
                 intent1.putExtra("member", memberList);
                 startActivity(intent1);
+                finish();
             }
         });
     }
