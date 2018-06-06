@@ -7,11 +7,40 @@
     tools:context=".SubActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        android:weightSum="6">
+
+        <TextView
+            android:id="@+id/nameView"
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="right"
+            android:text="nameView" />
+
+        <Button
+            android:id="@+id/LogBtn"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="10dp"
+            android:text="로그인" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
         <TableLayout
             android:layout_width="match_parent"
@@ -75,6 +104,7 @@
                     android:textStyle="bold" />
             </TableRow>
             //요일
+
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -1430,21 +1460,9 @@
 
         <Button
             android:id="@+id/groupBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="조별과제" />
-
-        <Button
-            android:id="@+id/LogBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="로그인"/>
-
-        <TextView
-            android:id="@+id/nameView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="nameView" />
+            android:text="조별과제" />/>
 
     </LinearLayout>
 
