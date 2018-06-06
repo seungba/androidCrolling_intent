@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, SubActivity.class);
                 intent.putExtra("id",id);
                 intent.putExtra("name",name);
-                intent.putExtra("table", table);
+                intent.putExtra("table", mask);
                 startActivity(intent);
                 finish();
             }

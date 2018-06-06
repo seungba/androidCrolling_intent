@@ -27,23 +27,16 @@ public class SubActivity extends AppCompatActivity { // 메인 액티비티에�
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub);
 
-        final Intent intent = getIntent();
+        Intent intent = getIntent();
         final String id = intent.getStringExtra("id");
-        final String name = intent.getStringExtra("name");
+        String name = intent.getStringExtra("name");
         final String table = intent.getStringExtra("table");
 
-        ArrayList<String> timeTable;
-        timeTable = GroupTime(table);
-        MONDAY_0(timeTable.get(0));//timeTable.get(0)
-        tuesday_0(timeTable.get(1));
-        wednesday_0(timeTable.get(2));
-        thursday_0(timeTable.get(3));
-        friday_0(timeTable.get(4));
-
+        groupBtn = findViewById(R.id.groupBtn); //조별과제
+        LogBtn = findViewById(R.id.LogBtn);
         nameView = findViewById(R.id.nameView);
         nameView.setText(name);
 
-        groupBtn = findViewById(R.id.groupBtn); //검색
         groupBtn.setOnClickListener(new View.OnClickListener() {
             @Override //이벤트 감지자 등록
             public void onClick(View v) {
@@ -54,7 +47,6 @@ public class SubActivity extends AppCompatActivity { // 메인 액티비티에�
             }
         });
 
-        LogBtn = findViewById(R.id.LogBtn);
         LogBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +55,13 @@ public class SubActivity extends AppCompatActivity { // 메인 액티비티에�
                 finish();
             }
         });
+        ArrayList<String> timeTable;
+        timeTable = GroupTime(table);
+        MONDAY_0(timeTable.get(0));
+        tuesday_0(timeTable.get(1));
+        wednesday_0(timeTable.get(2));
+        thursday_0(timeTable.get(3));
+        friday_0(timeTable.get(4));
     }
 
     public ArrayList<String> GroupTime(String mask) { // mask 테이블을 요일별로 5개의 ArrayList 로 나눈다
