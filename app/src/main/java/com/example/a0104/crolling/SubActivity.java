@@ -32,7 +32,6 @@ public class SubActivity extends AppCompatActivity { // 메인 액티비티에�
         final String name = intent.getStringExtra("name");
         final String table = intent.getStringExtra("table");
 
-
         ArrayList<String> timeTable;
         timeTable = GroupTime(table);
         MONDAY_0(timeTable.get(0));//timeTable.get(0)
@@ -80,36 +79,45 @@ public class SubActivity extends AppCompatActivity { // 메인 액티비티에�
         for(int i = 0; i < 20; i++){
             int getid = getResources().getIdentifier("monday" + i, "id", "com.example.a0104.crolling");
             final TextView textView = findViewById(getid);
-            textView.setBackgroundColor(getColor(R.color.Table_row_1));
+            if(mon.charAt(i) == '1') {
+                textView.setBackgroundColor(getColor(R.color.Table_row_1));
+            }
         }
     }
     void tuesday_0(String tue) {
         for (int i = 0; i < 20; i++) {
             int getid = getResources().getIdentifier("tuesday" + i, "id", "com.example.a0104.crolling");
             final TextView textView = findViewById(getid);
-            textView.setBackgroundColor(getColor(R.color.Table_row_2));
+            if(tue.charAt(i) == '1'){
+                textView.setBackgroundColor(getColor(R.color.Table_row_2));
+            }
         }
     }
     void wednesday_0(String wed) {
         for (int i = 0; i < 20; i++) {
             int getid = getResources().getIdentifier("wednesday" + i, "id", "com.example.a0104.crolling");
             final TextView textView = findViewById(getid);
-            textView.setBackgroundColor(getColor(R.color.Table_row_3));
+            if (wed.charAt(i) == '1') {
+                textView.setBackgroundColor(getColor(R.color.Table_row_3));
+            }
         }
     }
-    void thursday_0(String tue) {
+    void thursday_0(String thu) {
         for (int i = 0; i < 20; i++) {
             int getid = getResources().getIdentifier("thursday" + i, "id", "com.example.a0104.crolling");
             final TextView textView = findViewById(getid);
-            textView.setBackgroundColor(getColor(R.color.Table_row_4));
+            if (thu.charAt(i) == '1') {
+                textView.setBackgroundColor(getColor(R.color.Table_row_4));
+            }
         }
     }
     void friday_0(String fri) {
         for (int i = 0; i < 20; i++) {
             int getid = getResources().getIdentifier("friday" + i, "id", "com.example.a0104.crolling");
             final TextView textView = findViewById(getid);
-            textView.setBackgroundColor(getColor(R.color.Table_row_5));
+            if (fri.charAt(i) == '1') {
+                textView.setBackgroundColor(getColor(R.color.Table_row_5));
+            }
         }
     }
-
 }

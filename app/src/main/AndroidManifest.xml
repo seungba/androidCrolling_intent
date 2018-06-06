@@ -23,6 +23,7 @@
         <activity android:name=".GroupActivity" />
         <activity android:name=".GroupTable" />
         <activity android:name=".CheckMember" />
+        <activity android:name=".MemberTable"></activity>
     </application>
 
 </manifest>

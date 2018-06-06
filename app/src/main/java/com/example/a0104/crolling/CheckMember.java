@@ -22,6 +22,7 @@ public class CheckMember extends AppCompatActivity implements CompoundButton.OnC
     ArrayList<String> member_time;
     ArrayList<String> checkedTime;
     Button makeBtn;
+    Integer[] memberCheck;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +32,7 @@ public class CheckMember extends AppCompatActivity implements CompoundButton.OnC
 
         member_id = new ArrayList<>();
         member_time = new ArrayList<>();
-        checkedTime = new ArrayList<>(member_id.size());
+        checkedTime = new ArrayList<>();
 
         final Intent intent = getIntent();
         TableLayout checkTable = findViewById(R.id.checkTable);
@@ -41,13 +42,19 @@ public class CheckMember extends AppCompatActivity implements CompoundButton.OnC
         makeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1 = new Intent(CheckMember.this, GroupTable.class);
+                for (int i=0; i < member_id.size(); i++){
+                    if (memberCheck[i] == 1) {
+                        checkedTime.add(member_time.get(i));
+                    }
+                    Log.d("test", String.valueOf(memberCheck[i]));
+                }
+                Intent intent1 = new Intent(CheckMember.this, MemberTable.class);
                 intent1.putExtra("checkedTime", checkedTime);
                 startActivity(intent1);
-                finish();
             }
         });
 
+        memberCheck = new Integer[member_id.size()];
         for (int i = 0; i < member_id.size(); i++) {
             CheckBox checkBox = new CheckBox(this);
             checkBox.setOnCheckedChangeListener(this);
@@ -55,12 +62,15 @@ public class CheckMember extends AppCompatActivity implements CompoundButton.OnC
             checkBox.setText(member_id.get(i));
             checkBox.setTextSize(20f);
             checkTable.addView(checkBox);
+            memberCheck[i] = 0;
         }
     }
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         int i = buttonView.getId();
-        if (isChecked == true) checkedTime.add(member_time.get(i));
+        if (isChecked == true){
+            memberCheck[i] =1;
+        } else memberCheck[i] = 0;
     }
 }

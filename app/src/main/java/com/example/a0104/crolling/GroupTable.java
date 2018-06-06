@@ -24,7 +24,6 @@ public class GroupTable extends AppCompatActivity {
     DatabaseReference groupRef = rootRef.child("Group");
     ArrayList<String> member_id;
     ArrayList<String> member_time;
-    ArrayList<String> checkedTime;
     Button check;
     TextView count;
 
@@ -49,8 +48,9 @@ public class GroupTable extends AppCompatActivity {
                 if (!(dataSnapshot.getValue().equals(groupName) || dataSnapshot.getValue().equals(key))) {
                     member_id.add(dataSnapshot.getKey());
                     member_time.add(String.valueOf(dataSnapshot.getValue()));
+                    Log.d("test", member_time.get(0));
                     memberCount[0]++;
-                    count.setText("현재 조원 수: "+ memberCount[0] +"명");
+                    count.setText("현재 조원 수: " + memberCount[0] + "명");
                 }
             }
 
@@ -75,6 +75,7 @@ public class GroupTable extends AppCompatActivity {
             }
         });
 
+
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,14 +86,5 @@ public class GroupTable extends AppCompatActivity {
                 finish();
             }
         });
-
-
-        //CheckMember 에서 체크박스 선택 후 실행
-        checkedTime = new ArrayList<>();
-        checkedTime = intent.getStringArrayListExtra("checkedTime");
-        if (checkedTime.size() > 1){    //checkedTime 의 길이가 1개 이상(CheckMember 에서 인텐트로 왔다.)
-            //시간표 만들기
-            Log.d("test", checkedTime.get(0));
-        }
     }
 }

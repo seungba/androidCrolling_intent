@@ -77,9 +77,6 @@ public class MainActivity extends AppCompatActivity {
                 editor.putString("tableMask", mask);
                 editor.commit(); //데이터 저장
 
-                Firebase firebase = new Firebase(); // User 테이블에 정보(학번(id), 이름(name), 시간표(timeTable)을 넣는다)
-                firebase.updateUser(id, name, mask);
-
                 Intent intent = new Intent(MainActivity.this, SubActivity.class);
                 intent.putExtra("id",id);
                 intent.putExtra("name",name);
