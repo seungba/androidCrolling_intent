@@ -22,7 +22,7 @@
         <activity android:name=".SubActivity" />
         <activity android:name=".GroupActivity" />
         <activity android:name=".GroupTable" />
-        <activity android:name=".CheckMember"></activity>
+        <activity android:name=".CheckMember" />
     </application>
 
 </manifest>
