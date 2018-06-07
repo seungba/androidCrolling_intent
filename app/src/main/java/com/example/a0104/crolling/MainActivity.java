@@ -112,8 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Map<String, String> cookie2 = Response.cookies(); //로그인에 성공하면 받는 쿠키 + 로그인 전에 쿠키
 
-                Connection.Response Parse = Jsoup.connect("http://lms.daegu.ac.kr/ilos/lo/login_sso.acl")
-                        //Connection.Response Parse = Jsoup.connect("http://lms.daegu.ac.kr/ilos/st/main/pop_academic_timetable_form.acl") //로그인 성공시에 들어가는 창
+                Connection.Response Parse = Jsoup.connect("http://lms.daegu.ac.kr/ilos/lo/login_sso.acl")//로그인 성공시에 들어가는 창
                         .cookies(cookie2) //로그인하고난 뒤에 들고있어야 하는 쿠키
                         .timeout(0)
                         .execute();
