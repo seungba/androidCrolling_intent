@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.WindowManager;
-
 /*
 처음 앱을 실행시킬 때 나오는 액티비티
 prefs 에서 Name 값을 들고온다.(데이터가 없을 시에 null 값)

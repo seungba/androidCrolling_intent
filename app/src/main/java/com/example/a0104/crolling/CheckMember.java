@@ -3,18 +3,12 @@ package com.example.a0104.crolling;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.LinearLayout;
-import android.widget.LinearLayout.LayoutParams;
 import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class CheckMember extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
