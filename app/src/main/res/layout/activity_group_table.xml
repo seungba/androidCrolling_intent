@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,19 +8,25 @@
 
    <Button
        android:id="@+id/check"
-       android:layout_width="wrap_content"
+       android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:layout_alignParentEnd="true"
-       android:layout_below="@+id/groupName"
-       android:text="시간 만들기" />
+       android:layout_alignParentBottom="true"
+       android:layout_centerHorizontal="true"
+       android:layout_marginBottom="8dp"
+       android:text="시간 만들기"
+       app:layout_constraintBottom_toBottomOf="parent" />
 
    <TextView
        android:id="@+id/count"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_alignParentEnd="true"
-       android:layout_below="@+id/check"
-       android:text="멤버수" />
+       android:layout_alignParentTop="true"
+       android:layout_marginEnd="8dp"
+       android:layout_marginTop="8dp"
+       android:layout_toEndOf="@+id/keyView"
+       android:text="멤버수"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/button" />
 
    <TextView
        android:id="@+id/groupNameView"
@@ -30,28 +37,87 @@
        android:background="@color/colorPrimary"
        android:gravity="center"
        android:text="그룹이름"
+       android:textColor="#FFFFFF"
        android:textSize="28sp"
-       android:textStyle="bold"
-       android:textColor="#FFFFFF"/>
+       android:textStyle="bold" />
 
    <TextView
        android:id="@+id/keyView"
 
-       android:layout_width="271dp"
-       android:layout_height="29dp"
-       android:layout_alignBaseline="@+id/check"
+       android:layout_width="259dp"
+       android:layout_height="58dp"
        android:layout_alignParentStart="true"
-       android:layout_marginStart="12dp"
+       android:layout_alignParentTop="true"
+       android:layout_marginEnd="8dp"
+       android:layout_marginStart="8dp"
+       android:gravity="center"
        android:text="TextView"
+       android:textIsSelectable="true"
        android:textSize="18sp"
-       android:textIsSelectable="true"/>
+       app:layout_constraintEnd_toStartOf="@+id/button"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/groupNameView" />
 
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
+
+   <Button
+       android:id="@+id/button"
+       android:layout_width="95dp"
+       android:layout_height="58dp"
        android:layout_alignParentStart="true"
-       android:layout_below="@+id/count"
-       android:orientation="horizontal">
+       android:layout_centerVertical="true"
+       android:layout_marginEnd="8dp"
+       android:text="복사하기"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/groupNameView" />
 
-   </LinearLayout>
-</RelativeLayout>
+   <TextView
+       android:id="@+id/textView2"
+       android:layout_width="wrap_content"
+       android:layout_height="19dp"
+       android:layout_marginBottom="8dp"
+       android:layout_marginEnd="8dp"
+       android:layout_marginStart="8dp"
+       android:layout_marginTop="8dp"
+       android:text="1. 상단의 초대코드를 복사하세요"
+       app:layout_constraintBottom_toTopOf="@+id/check"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/keyView"
+       app:layout_constraintVertical_bias="0.41000003" />
+
+   <TextView
+       android:id="@+id/textView3"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginEnd="8dp"
+       android:layout_marginStart="8dp"
+       android:layout_marginTop="8dp"
+       android:text="2. 참여할 조원에게 초대 코드를 보냅니다"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+   <TextView
+       android:id="@+id/textView4"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginEnd="8dp"
+       android:layout_marginStart="8dp"
+       android:layout_marginTop="8dp"
+       android:text="3. 현재 참여중인 멤버의 수 를 확인할 수 있습니다"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+   <TextView
+       android:id="@+id/textView5"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginEnd="8dp"
+       android:layout_marginStart="8dp"
+       android:layout_marginTop="8dp"
+       android:text="4. 시간만들기 버튼을 눌러 팀원끼리 스케쥴을 조정하세요 :)"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/textView4" />
+</android.support.constraint.ConstraintLayout>
