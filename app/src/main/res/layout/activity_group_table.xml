@@ -26,7 +26,7 @@
        android:layout_toEndOf="@+id/keyView"
        android:text="멤버수"
        app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintTop_toBottomOf="@+id/button" />
+       app:layout_constraintTop_toBottomOf="@+id/keyCopy" />
 
    <TextView
        android:id="@+id/groupNameView"
@@ -54,13 +54,13 @@
        android:text="TextView"
        android:textIsSelectable="true"
        android:textSize="18sp"
-       app:layout_constraintEnd_toStartOf="@+id/button"
+       app:layout_constraintEnd_toStartOf="@+id/keyCopy"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toBottomOf="@+id/groupNameView" />
 
 
    <Button
-       android:id="@+id/button"
+       android:id="@+id/keyCopy"
        android:layout_width="95dp"
        android:layout_height="58dp"
        android:layout_alignParentStart="true"
