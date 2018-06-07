@@ -22,7 +22,7 @@
        android:text="멤버수" />
 
    <TextView
-       android:id="@+id/groupName"
+       android:id="@+id/groupNameView"
        android:layout_width="match_parent"
        android:layout_height="55dp"
        android:layout_alignParentTop="true"
@@ -35,7 +35,8 @@
        android:textColor="#FFFFFF"/>
 
    <TextView
-       android:id="@+id/KeyView2"
+       android:id="@+id/keyView"
+
        android:layout_width="271dp"
        android:layout_height="29dp"
        android:layout_alignBaseline="@+id/check"
@@ -51,27 +52,6 @@
        android:layout_alignParentStart="true"
        android:layout_below="@+id/count"
        android:orientation="horizontal">
-
-       <RadioButton
-          android:id="@+id/radioButton"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:text="RadioButton" />
-
-       <RadioButton
-           android:id="@+id/radioButton2"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_weight="1"
-           android:text="RadioButton" />
-
-       <RadioButton
-           android:id="@+id/radioButton3"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_weight="1"
-           android:text="RadioButton" />
 
    </LinearLayout>
 </RelativeLayout>

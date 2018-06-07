@@ -51,6 +51,7 @@ public class CheckMember extends AppCompatActivity implements CompoundButton.OnC
                 Intent intent1 = new Intent(CheckMember.this, MemberTable.class);
                 intent1.putExtra("checkedTime", checkedTime);
                 startActivity(intent1);
+                finish();
             }
         });
 

@@ -33,7 +33,6 @@ public class MemberTable extends AppCompatActivity {
             wednesday_0(member.get(2));
             thursday_0(member.get(3));
             friday_0(member.get(4));
-            member.clear();
         }
     }
 
