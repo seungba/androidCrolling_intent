@@ -66,7 +66,7 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.GroupViewHol
             super(itemView);
             groupNameView = itemView.findViewById(R.id.groupNameView);
             keyView = itemView.findViewById(R.id.keyView);
-            masterView = itemView.findViewById(R.id.masterVIew);
+            masterView = itemView.findViewById(R.id.masterView);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
