@@ -39,6 +39,7 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.GroupViewHol
         GroupModel groupModel = groupLists.get(position);
         holder.groupNameView.setText(groupModel.getGroupName());
         holder.keyView.setText(groupModel.getKey());
+        holder.masterView.setText(groupModel.getMaster());
     }
 
     @Override
@@ -59,12 +60,13 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.GroupViewHol
     }
 
     class GroupViewHolder extends RecyclerView.ViewHolder{
-        private TextView groupNameView, keyView;
+        private TextView groupNameView, keyView,masterView;
 
         public GroupViewHolder(View itemView, final OnGroupClickListener onGroupClickListener){
             super(itemView);
             groupNameView = itemView.findViewById(R.id.groupNameView);
             keyView = itemView.findViewById(R.id.keyView);
+            masterView = itemView.findViewById(R.id.masterVIew);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

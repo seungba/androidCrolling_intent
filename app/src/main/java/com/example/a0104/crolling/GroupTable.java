@@ -24,19 +24,24 @@ public class GroupTable extends AppCompatActivity {
     DatabaseReference groupRef = rootRef.child("Group");
     ArrayList<String> member_id;
     ArrayList<String> member_time;
+    TextView countView,groupNameView,keyView;
     Button check;
-    TextView count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_table);
         check = findViewById(R.id.check);
-        count = findViewById(R.id.count);
+        countView = findViewById(R.id.count);
+        groupNameView = findViewById(R.id.groupNameView);
+        keyView = findViewById(R.id.keyView);
 
         Intent intent = getIntent();
         final String groupName = intent.getStringExtra("groupName");
         final String key = intent.getStringExtra("key");
+        groupNameView.setText(groupName);
+        keyView.setText(key);
+
 
         member_id = new ArrayList<>();
         member_time = new ArrayList<>();
@@ -45,12 +50,12 @@ public class GroupTable extends AppCompatActivity {
         group_query.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                if (!(dataSnapshot.getValue().equals(groupName) || dataSnapshot.getValue().equals(key))) {
+                if (!(dataSnapshot.getValue().equals(groupName) || dataSnapshot.getValue().equals(key) || dataSnapshot.getKey().equals("master"))) {
                     member_id.add(dataSnapshot.getKey());
                     member_time.add(String.valueOf(dataSnapshot.getValue()));
                     Log.d("test", member_time.get(0));
                     memberCount[0]++;
-                    count.setText("현재 조원 수: " + memberCount[0] + "명");
+                    countView.setText("현재 조원 수: " + memberCount[0] + "명");
                 }
             }
 
@@ -74,7 +79,6 @@ public class GroupTable extends AppCompatActivity {
 
             }
         });
-
 
         check.setOnClickListener(new View.OnClickListener() {
             @Override

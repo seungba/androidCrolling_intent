@@ -29,7 +29,7 @@ public class SubActivity extends AppCompatActivity { // 메인 액티비티에�
 
         Intent intent = getIntent();
         final String id = intent.getStringExtra("id");
-        String name = intent.getStringExtra("name");
+        final String name = intent.getStringExtra("name");
         final String table = intent.getStringExtra("table");
 
         groupBtn = findViewById(R.id.groupBtn); //조별과제
@@ -42,6 +42,7 @@ public class SubActivity extends AppCompatActivity { // 메인 액티비티에�
             public void onClick(View v) {
                 Intent intent = new Intent(SubActivity.this, GroupActivity.class);
                 intent.putExtra("id", id);
+                intent.putExtra("name", name);
                 intent.putExtra("table", table);
                 startActivity(intent);
             }

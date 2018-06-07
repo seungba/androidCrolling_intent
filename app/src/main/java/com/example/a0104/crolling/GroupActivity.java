@@ -35,7 +35,7 @@ Firebase 의 그룹 테이블에서 자신의 학번이 들어있는 그룹만 R
 */
 public class GroupActivity extends AppCompatActivity {
     Button addGroupBtn;
-    String id, table;
+    String id, name, table;
 
     private List<GroupModel> groupList = new ArrayList<>();
     FirebaseDatabase firebaseDatabase;
@@ -48,6 +48,7 @@ public class GroupActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
+        name = intent.getStringExtra("name");
         table = intent.getStringExtra("table");
         addGroupBtn = findViewById(R.id.addGroupBtn);
         addGroupBtn.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +67,7 @@ public class GroupActivity extends AppCompatActivity {
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         mRef = firebaseDatabase.getReference("Group");
-        Query query = mRef.orderByChild(id).equalTo(table);
+        Query query = mRef.orderByChild(id+" "+name).equalTo(table);
 
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -128,9 +129,10 @@ public class GroupActivity extends AppCompatActivity {
                 } else {
                     Log.d("test","master 추가");
                     String Key = mRef.push().getKey(); // 그룹을 만들고 그룹의 키값을 가져온다.
-                    mRef.child(Key).child(id).setValue(table); // id->key, table->value
+                    mRef.child(Key).child(id+" "+name).setValue(table); // id->key, table->value
                     mRef.child(Key).child("groupName").setValue(subject_name[0]); //과목명
                     mRef.child(Key).child("key").setValue(Key); //키
+                    mRef.child(Key).child("master").setValue(id+" "+name); // 조장의 권한을 부여하기 위한 child
                 }
             }
         });
@@ -155,7 +157,7 @@ public class GroupActivity extends AppCompatActivity {
                     emptyError();
                 } else {
                     Log.d("test","slave 추가");
-                    mRef.child(Key).child(id).setValue(table);
+                    mRef.child(Key).child(id+" "+name).setValue(table);
                 }
             }
         });
