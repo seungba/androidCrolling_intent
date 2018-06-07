@@ -87,7 +87,6 @@ public class GroupTable extends AppCompatActivity {
                 intent1.putExtra("member_id", member_id);
                 intent1.putExtra("member_time", member_time);
                 startActivity(intent1);
-                finish();
             }
         });
     }

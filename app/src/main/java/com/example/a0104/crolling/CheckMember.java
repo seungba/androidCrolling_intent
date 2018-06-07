@@ -45,8 +45,8 @@ public class CheckMember extends AppCompatActivity implements CompoundButton.OnC
                 for (int i=0; i < member_id.size(); i++){
                     if (memberCheck[i] == 1) {
                         checkedTime.add(member_time.get(i));
+                        memberCheck[i] = 0;
                     }
-                    Log.d("test", String.valueOf(memberCheck[i]));
                 }
                 Intent intent1 = new Intent(CheckMember.this, MemberTable.class);
                 intent1.putExtra("checkedTime", checkedTime);

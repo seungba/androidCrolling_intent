@@ -22,11 +22,6 @@ public class MemberTable extends AppCompatActivity {
         checkedTime = new ArrayList<>();
         member = new ArrayList<>();
         group = new ArrayList<>();
-    }
-
-    @Override
-    protected void onPostResume() {
-        super.onPostResume();
 
         Intent intent = getIntent();
         checkedTime = intent.getStringArrayListExtra("checkedTime");
@@ -42,7 +37,6 @@ public class MemberTable extends AppCompatActivity {
         }
     }
 
-
     public ArrayList<String> GroupTime(String mask) { // mask 테이블을 요일별로 5개의 ArrayList 로 나눈다
         ArrayList<String> table = new ArrayList<>();
         table.add(mask.substring(0, 20));
@@ -52,7 +46,6 @@ public class MemberTable extends AppCompatActivity {
         table.add(mask.substring(80, 100));
         return table;
     }
-
     void MONDAY_0(String mon){
         for(int i = 0; i < 20; i++){
             int getid = getResources().getIdentifier("monday" + i, "id", "com.example.a0104.crolling");
