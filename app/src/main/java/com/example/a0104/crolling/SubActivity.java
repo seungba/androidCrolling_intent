@@ -1,6 +1,7 @@
 package com.example.a0104.crolling;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -51,6 +52,13 @@ public class SubActivity extends AppCompatActivity { // 메인 액티비티에�
         LogBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences pref = getSharedPreferences("User", MODE_PRIVATE);
+                SharedPreferences.Editor editor = pref.edit();
+                editor.putString("ID", null);
+                editor.putString("Name", null);
+                editor.putString("tableMask", null);
+                editor.commit(); //데이터 저장
+
                 Intent intent2 = new Intent(SubActivity.this, MainActivity.class);
                 startActivity(intent2);
                 finish();

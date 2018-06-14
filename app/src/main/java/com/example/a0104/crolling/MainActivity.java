@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     String[][] table;
     String mask;
     Button Login;
+    Boolean Suc = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("LoginBtn","onClick 호출됨");
                 id = ID.getText().toString(); //아이디 입력창의 데이터를 들고와서 문자열으로 받는다.
                 pw = PW.getText().toString(); //비밀번호 입력창의 데이터를 들고와서 문자열으로 받는다.
+                ID.setText("");
+                PW.setText("");
 
                 GetData getData = new GetData();
                 getData.start();
@@ -62,27 +65,29 @@ public class MainActivity extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                String[] array1 = name.split(">"); //<strong class=\"site-font-color\" id=\"user\" style=\"float: left ;letter-spacing:-1px;\">김민석</strong>"
-                String[] array2 = array1[1].split("<"); //김민석</strong>
-                name = array2[0];  //김민석
+                if (Suc) {
+                    String[] array1 = name.split(">"); //<strong class=\"site-font-color\" id=\"user\" style=\"float: left ;letter-spacing:-1px;\">김민석</strong>"
+                    String[] array2 = array1[1].split("<"); //김민석</strong>
+                    name = array2[0];  //김민석
 
-                MakeTimeTable makeTimeTable = new MakeTimeTable();
-                table = makeTimeTable.MakeTable(timeTable); //시간표 만들기를 통해 개인 시간표를 만든다.
-                mask = makeTimeTable.maskTable(table); // Firebase에서 쓰이는 mask 시간표를 만든다.
+                    MakeTimeTable makeTimeTable = new MakeTimeTable();
+                    table = makeTimeTable.MakeTable(timeTable); //시간표 만들기를 통해 개인 시간표를 만든다.
+                    mask = makeTimeTable.maskTable(table); // Firebase 에서 쓰이는 mask 시간표를 만든다.
 
-                SharedPreferences pref =getSharedPreferences("User", MODE_PRIVATE);
-                SharedPreferences.Editor editor = pref.edit();
-                editor.putString("ID", id);
-                editor.putString("Name", name);
-                editor.putString("tableMask", mask);
-                editor.commit(); //데이터 저장
+                    SharedPreferences pref = getSharedPreferences("User", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = pref.edit();
+                    editor.putString("ID", id);
+                    editor.putString("Name", name);
+                    editor.putString("tableMask", mask);
+                    editor.commit(); //데이터 저장
 
-                Intent intent = new Intent(MainActivity.this, SubActivity.class);
-                intent.putExtra("id",id);
-                intent.putExtra("name",name);
-                intent.putExtra("table", mask);
-                startActivity(intent);
-                finish();
+                    Intent intent = new Intent(MainActivity.this, SubActivity.class);
+                    intent.putExtra("id", id);
+                    intent.putExtra("name", name);
+                    intent.putExtra("table", mask);
+                    startActivity(intent);
+                    finish();
+                } else  Toast.makeText(MainActivity.this, "로그인 오류", Toast.LENGTH_LONG).show();
             }
         });//이벤트 감지자
     }
@@ -118,18 +123,25 @@ public class MainActivity extends AppCompatActivity {
                         .execute();
 
                 Document document = Parse.parse(); //정보들을 파싱해온다
-                name = document.select("div.login").get(0).select("strong").get(0).toString();
-                Elements list = document.select("div.m-box2").get(0).select("li");
-                Elements sub_sub = list.select("em");
-                Elements sub_time = list.select("span");
 
-                for (int i = 0; i < sub_sub.size(); i++) { //ArrayList 에 넣는 작업
-                    timeTable.add(sub_sub.get(i).text());
-                    timeTable.add(sub_time.get(i).text());
+
+                if (document.select("div.m-box2").get(0).select("span").get(0).toString().equals("<span>수강과목</span>")) {
+                    Elements list = document.select("div.m-box2").get(0).select("li");
+                    Elements sub_sub = list.select("em");
+                    Elements sub_time = list.select("span");
+                    name = document.select("div.login").get(0).select("strong").get(0).toString();
+
+                    for (int i = 0; i < sub_sub.size(); i++) { //ArrayList 에 넣는 작업
+                        timeTable.add(sub_sub.get(i).text());
+                        timeTable.add(sub_time.get(i).text());
+                    }
+                    Suc = true;
                 }
             } catch (IOException e) {
                 e.printStackTrace();
-                Toast.makeText(MainActivity.this, "시간표를 들고 올 수 없습니다..", Toast.LENGTH_SHORT).show();
+            } catch (IndexOutOfBoundsException e){
+                e.printStackTrace();
+                interrupt();
             }
         }
     }
